@@ -1,4 +1,6 @@
-import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_} from "typeorm"
+import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_, OneToMany as OneToMany_} from "typeorm"
+import * as marshal from "./marshal"
+import {HistoricalTreasuryBalance} from "./historicalTreasuryBalance.model"
 
 @Entity_()
 export class Treasury {
@@ -6,15 +8,12 @@ export class Treasury {
         Object.assign(this, props)
     }
 
-    /**
-     * Treasury
-     */
     @PrimaryColumn_()
     id!: string
 
-    @Column_("text", {nullable: true})
-    test!: string | undefined | null
+    @Column_("numeric", {transformer: marshal.bigintTransformer, nullable: false})
+    balance!: bigint
 
-    @Column_("text", {nullable: true})
-    propIndex!: string | undefined | null
+    @OneToMany_(() => HistoricalTreasuryBalance, e => e.treasury)
+    historicalBalances!: HistoricalTreasuryBalance[]
 }

@@ -27,7 +27,7 @@ const processor = new SubstrateBatchProcessor()
   } as const)
   .addEvent("Treasury.Proposed", {
     data: {event: { args: true}}
-  } as const);
+  } as const)
 
 type Item = BatchProcessorItem<typeof processor>;
 type Ctx = BatchContext<Store, Item>;

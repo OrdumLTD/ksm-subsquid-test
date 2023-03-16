@@ -16,13 +16,41 @@ type Transfer @entity {
   fee: BigInt! # fee is calculated at the best effort and may be zero for some old extrinsics
 }
 
-type Treasury @entity {
-  "Treasury"
+type HistoricalTreasuryBalance @entity {
   id: ID!
-  propIndex: String
+  balance: BigInt!
+  date: DateTime!
+  treasury: Treasury!
 }
 
-type Proposals @entity {
+type Treasury @entity {
+  id: ID!
+  balance: BigInt!
+  historicalBalances: [HistoricalTreasuryBalance!] @derivedFrom(field: "treasury")
+}
+
+type Proposal @entity {
   "Proposal"
   id: ID!
+}
+
+type Preimage @entity {
+  id: ID!
+  createdAt: DateTime
+  createdAtBlock: BigInt
+}
+
+type TreasuryProposal @entity {
+  id: ID!
+  value: BigInt!
+  beneficiary: String!
+  status: TreasuryStatus!
+}
+
+
+enum TreasuryStatus {
+  PROPOSED
+  APPROVED
+  REJECTED
+  AWARDED
 }
