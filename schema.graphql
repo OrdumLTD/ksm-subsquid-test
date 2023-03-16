@@ -18,9 +18,8 @@ type Transfer @entity {
 
 type Treasury @entity {
   "Treasury"
-  # id: ID!
-  # accountId: [Account!] @derivedFrom(field: "id")
-  propIndex: String @index
+  id: ID!
+  propIndex: String
 }
 
 type Proposals @entity {

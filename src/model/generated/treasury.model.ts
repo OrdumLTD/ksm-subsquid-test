@@ -1,4 +1,4 @@
-import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_, Index as Index_} from "typeorm"
+import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_} from "typeorm"
 
 @Entity_()
 export class Treasury {
@@ -6,13 +6,15 @@ export class Treasury {
         Object.assign(this, props)
     }
 
-    @PrimaryColumn_()
-    id!: string
-
     /**
      * Treasury
      */
-    @Index_()
+    @PrimaryColumn_()
+    id!: string
+
+    @Column_("text", {nullable: true})
+    test!: string | undefined | null
+
     @Column_("text", {nullable: true})
     propIndex!: string | undefined | null
 }
