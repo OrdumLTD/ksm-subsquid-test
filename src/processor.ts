@@ -7,7 +7,7 @@ import {
 } from "@subsquid/substrate-processor";
 import { Store, TypeormDatabase } from "@subsquid/typeorm-store";
 import { In } from "typeorm";
-import { Account, Transfer, Proposal } from "./model";
+import { Account, Transfer } from "./model";
 import { BalancesTransferEvent } from "./types/events";
 
 const processor = new SubstrateBatchProcessor()
@@ -26,15 +26,7 @@ const processor = new SubstrateBatchProcessor()
     },
   } as const)
   .addEvent("Treasury.Proposed", {
-    data: {
-      event: {
-        args: true,
-        extrinsic: {
-          hash: true,
-          fee: true,
-        },
-      },
-    },
+    data: {event: { args: true}}
   } as const);
 
 type Item = BatchProcessorItem<typeof processor>;
@@ -137,12 +129,12 @@ function getAccount(m: Map<string, Account>, id: string): Account {
   return acc;
 }
 
-function getPropoasl(m: Map<string, Proposal>, id: string): Proposal {
-    let proposal = m.get(id)
-    if (proposal == null) {
-        proposal = new Proposal();
-        proposal.id = id;
-        m.set(id, proposal);
-      }
-    return proposal;
-}
+// function getPropoasl(m: Map<string, Proposal>, id: string): Proposal {
+//     let proposal = m.get(id)
+//     if (proposal == null) {
+//         proposal = new Proposal();
+//         proposal.id = id;
+//         m.set(id, proposal);
+//       }
+//     return proposal;
+// }

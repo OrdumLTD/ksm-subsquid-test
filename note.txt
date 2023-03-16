@@ -4,9 +4,7 @@ typegen.json - Define all the phallets here
 
 > npx squid-typeorm-codegen
 
-generate Types (src/types), after graphql.schema definition
-
-check ksm metadata for further info on types
+generate Types (src/types), after graphql.schema definition (refer to ksm metadata for further info on types and relations)
 
 NB! Return type in src/types, after you run > codegen
 

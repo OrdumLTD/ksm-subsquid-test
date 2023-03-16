@@ -1,8 +1,8 @@
 import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_} from "typeorm"
 
 @Entity_()
-export class Proposal {
-    constructor(props?: Partial<Proposal>) {
+export class Proposals {
+    constructor(props?: Partial<Proposals>) {
         Object.assign(this, props)
     }
 

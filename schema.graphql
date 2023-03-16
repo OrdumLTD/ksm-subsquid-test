@@ -16,7 +16,14 @@ type Transfer @entity {
   fee: BigInt! # fee is calculated at the best effort and may be zero for some old extrinsics
 }
 
-type Proposal @entity {
+type Treasury @entity {
+  "Treasury"
+  # id: ID!
+  # accountId: [Account!] @derivedFrom(field: "id")
+  propIndex: String @index
+}
+
+type Proposals @entity {
   "Proposal"
   id: ID!
 }

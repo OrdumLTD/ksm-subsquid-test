@@ -1,3 +1,4 @@
 export * from "./account.model"
 export * from "./transfer.model"
-export * from "./proposal.model"
+export * from "./treasury.model"
+export * from "./proposals.model"
