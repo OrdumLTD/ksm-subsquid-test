@@ -1,8 +1,12 @@
 ksm address = H7ktWV7Byibzwey2mphMsBnpnb3mbkJiKRQoCNADi2fJvJe
 
-typegen.json - Define all the phallets tere
+typegen.json - Define all the phallets here
+
+> npx squid-typeorm-codegen
+
+generate Types (src/types), after graphql.schema definition
 
 check ksm metadata for further info on types
 
-NB! Return type ins src/types, after you run >codegen
+NB! Return type in src/types, after you run > codegen
 
