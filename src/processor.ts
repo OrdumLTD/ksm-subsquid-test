@@ -28,6 +28,9 @@ const processor = new SubstrateBatchProcessor()
   .addEvent("Treasury.Proposed", {
     data: {event: { args: true}}
   } as const)
+  .addEvent("Test", {
+    data: {event: { args: true}}
+  })
 
 type Item = BatchProcessorItem<typeof processor>;
 type Ctx = BatchContext<Store, Item>;
@@ -129,7 +132,7 @@ function getAccount(m: Map<string, Account>, id: string): Account {
   return acc;
 }
 
-// function getPropoasl(m: Map<string, Proposal>, id: string): Proposal {
+// function getPropoals (m: Map<string, Proposal>, id: string): Proposal {
 //     let proposal = m.get(id)
 //     if (proposal == null) {
 //         proposal = new Proposal();
