@@ -1,0 +1,8 @@
+ksm address = H7ktWV7Byibzwey2mphMsBnpnb3mbkJiKRQoCNADi2fJvJe
+
+typegen.json - Define all the phallets tere
+
+check ksm metadata for further info on types
+
+NB! Return type ins src/types, after you run >codegen
+
